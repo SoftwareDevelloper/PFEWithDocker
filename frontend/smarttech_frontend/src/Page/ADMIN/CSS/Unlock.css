@@ -1,0 +1,108 @@
+.admin-container {
+    padding: 2rem;
+    background: white;
+    min-height: 100vh;
+    font-family:"Montserrat", sans-serif;
+
+  }
+  
+  .admin-panel {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2.5rem;
+    background: linear-gradient(145deg, #ffffff 0%, #f0f8ff 100%);
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(3, 97, 159, 0.1);
+  }
+  
+  .panel-heading {
+    text-align: center;
+    color: #03619f;
+    margin-bottom: 3rem;
+    position: relative;
+    font-size: 35px;
+    font-weight: 700;
+  }
+  
+  
+  
+  .search-group {
+    margin-bottom: 2rem;
+  }
+  
+  .autocomplete-input {
+    width: 100%;
+    margin-bottom: 1.5rem;
+  }
+  
+  .autocomplete-input .MuiOutlinedInput-root {
+    border-radius: 12px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  .autocomplete-input .MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline {
+    border-color: #03619f;
+  }
+  
+  .autocomplete-input .Mui-focused .MuiOutlinedInput-notchedOutline {
+    border-color: #03619f !important;
+    box-shadow: 0 0 0 3px rgba(3, 97, 159, 0.1);
+  }
+  
+  .autocomplete-input .MuiInputLabel-root.Mui-focused {
+    color: #03619f !important;
+  }
+  
+  .unlock-button {
+    width: 100%;
+    padding: 1rem 2rem;
+    background: #fdc401;
+    color: #03619f;
+    border: none;
+    border-radius: 12px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 1.1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.8rem;
+    box-shadow: 0 4px 15px rgba(253, 196, 1, 0.3);
+  }
+  
+  .unlock-button:hover {
+    background: #fdb700;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(253, 196, 1, 0.4);
+  }
+  
+  .unlock-button:active {
+    transform: translateY(0);
+  }
+  
+  .unlock-button svg {
+    width: 20px;
+    height: 20px;
+    fill: #03619f;
+  }
+  
+  @media (max-width: 768px) {
+    .admin-container {
+      padding: 1rem;
+    }
+    
+    .admin-panel {
+      padding: 1.5rem;
+      border-radius: 15px;
+    }
+    
+    .panel-heading {
+      font-size: 1.5rem;
+    }
+    
+    .unlock-button {
+      padding: 0.8rem 1.5rem;
+      font-size: 1rem;
+    }
+  }
