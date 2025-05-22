@@ -5,8 +5,14 @@ WORKDIR /app
 
 COPY mvnw ./
 COPY .mvn .mvn
+<<<<<<< HEAD
 COPY pom.xml ./
 
+=======
+COPY pom.xml .
+# Ensure mvnw is executable
+RUN chmod +x mvnw
+>>>>>>> 510057f822c7f3b8fd2fc35082e7d9a9a511fde4
 RUN ./mvnw dependency:go-offline -B
 
 COPY src ./src
