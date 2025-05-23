@@ -1,4 +1,5 @@
-FROM openjdk:17-jdk-bullseye AS build
+# ---------- Stage 1: Build ----------
+FROM openjdk:17-jdk-slim AS build
 
 WORKDIR /app
 
@@ -12,17 +13,26 @@ COPY src src
 
 RUN ./mvnw package -DskipTests
 
-FROM openjdk:17-jdk-bullseye
+
+# ---------- Stage 2: Run ----------
+FROM openjdk:17-jdk-slim
 
 WORKDIR /app
 
+# Copy built JAR
 COPY --from=build /app/target/BackendPFE-0.0.1-SNAPSHOT.jar app.jar
+
+# Copy Python files
 COPY src/main/resources/ml-python ./ml-python
 
-# Use apt-get on Debian-based image
-RUN apt-get update && apt-get install -y python3 python3-pip && apt-get clean
+# Install Python & pip
+RUN apt-get update && \
+    apt-get install -y python3 python3-pip && \
+    apt-get clean && \
+    rm -rf /var/lib/apt/lists/*
 
-RUN pip3 install --no-cache-dir -r ml-python/requirements.txt
+# Install Python dependencies (optional)
+RUN pip3 install --no-cache-dir -r ml-python/requirements.txt || true
 
 EXPOSE 9000
 
